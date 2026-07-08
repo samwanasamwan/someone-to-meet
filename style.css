@@ -1,0 +1,141 @@
+body {
+  background-color: #f9a8bb;
+}
+
+.card {
+  background-color: #f5f1e6;
+  z-index: 2; /* lebih tinggi dari rain-container */
+  position: relative; /* supaya z-index berfungsi */
+  max-width: 28rem;
+  border-radius: 15px;
+}
+
+img {
+  max-width: 14rem;
+  max-height: 14rem;
+  width: auto;
+  height: auto;
+}
+
+.rain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.name {
+  position: absolute;
+  color: #000;
+  font-size: 24px;
+  animation: rain 3s linear infinite;
+}
+
+@keyframes rain {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+p{
+  color: #f9a8bb;
+}
+
+button {
+  padding: 12px 24px;
+  background: #f5f1e6;
+  color: #f9a8bb;
+  border: 3px solid #f9a8bb;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.custom-input-wrapper {
+    position: relative;
+    min-width: 20rem;
+    max-width: 28rem;
+}
+
+.custom-input-wrapper input {
+    width: 100%;
+    padding: 12px 50px 12px 16px;
+    background: #f5f1e6;
+    color: #f9a8bb;
+    border: 3px solid #f9a8bb;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.custom-input-wrapper input::placeholder {
+    color: #f9a8bb;
+    opacity: 0.7;
+}
+
+.custom-input-wrapper input:focus {
+    box-shadow: 0 0 8px rgba(249, 168, 187, 0.3);
+}
+
+.input-check {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    background: #f9a8bb;
+    color: #fff;
+    cursor: pointer;
+}
+
+.input-check:hover {
+    background: #f58aa6;
+}
+
+.input-check:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.pulse-animation {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
