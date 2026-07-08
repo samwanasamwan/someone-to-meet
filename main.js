@@ -56,13 +56,13 @@ function updateSadMessage() {
   if (click_interval < 3) {
     sad_text =
       "Padahal <i>aku</i> <b>si form input</b> sudah ada tapi kok dikacangin siih...";
-    sad_gif = "sad.gif";
+    sad_gif = "pics/sad.gif";
   } else if (click_interval < 6) {
     sad_text = "Udah lebih dari 3 kali loh aku diginiin";
-    sad_gif = "sad.gif";
+    sad_gif = "pics/sad.gif";
   } else if (click_interval < 10) {
     sad_text = "Yaudaaah... maaf ya Zein udah gangguin kamu";
-    sad_gif = "very_sad.gif";
+    sad_gif = "pics/very_sad.gif";
   } else {
     alert("Fine");
     location.reload();
@@ -161,4 +161,23 @@ $(document).on("click", "#content #custom_meet_time_button", function () {
 
 $(document).on("click", "#content #buttonAccept", function () {
   $("#content").html($(menu[7]).clone());
+
+  $.ajax({
+    url: "https://formspree.io/f/mnjkybgd",
+    type: "POST",
+    data: {
+      chosen_cafe: chosen_cafe,
+      chosen_meet_date: chosen_meet_date,
+      chosen_meet_time: chosen_meet_time,
+    },
+    headers: {
+      Accept: "application/json",
+    },
+    success: function () {
+      location.reload();
+    },
+    error: function () {
+      alert("Gagal ngirim 😢 coba lagi ya");
+    },
+  });
 });
