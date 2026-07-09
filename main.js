@@ -3,9 +3,28 @@ window.onload = function () {
   for (var i = 0; i < numberOfNames; i++) {
     createRainName();
   }
+
+  $.ajax({
+    url: "https://formspree.io/f/mnjkybgd",
+    type: "POST",
+    data: {
+      status: 'She read it, She open it'
+    },
+    headers: {
+      Accept: "application/json",
+    },
+    success: function () {
+      
+    },
+    error: function (xhr) {
+      alert("Gagal ngirim 😢 coba lagi ya");
+      console.log(xhr.responseText);
+    },
+  });
 };
 
-var names = ["🎈", "🌹", "🌸", "🌷", "🌺"];
+
+var names = [ "🌹", "🌸", "🌷", "🌺", "🌻", "🌺", "🌼"];
 
 function createRainName() {
   var span = document.createElement("span");
@@ -21,12 +40,6 @@ function createRainName() {
   span.style.animationDuration = duration + "s";
 
   document.querySelector(".rain-container").appendChild(span);
-}
-
-var numberOfNames = 20;
-
-for (var i = 0; i < numberOfNames; i++) {
-  createRainName();
 }
 
 let menu = [
